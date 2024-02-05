@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import PokeCard from "./components/PokeCard";
+import Header from "./components/Header";
+import MainLayout from "./components/MainLayout";
 import { fetchPokemons } from "./services/pokeapi";
 
 export default function App() {
@@ -21,12 +23,20 @@ export default function App() {
   }, []);
 
   return (
-    <div className="m-10">
-      {pokemons.map((pokemon, index) => (
-        <div key={`pokemon-${index}`} className="grid grid-cols-4 gap-4">
-          <PokeCard name={pokemon.name} url={pokemon.url} />
+    <MainLayout>
+      <div
+        style={{ backgroundImage: `url(pokebackground.jpg)` }}
+        className="bg-cover bg-no-repeat bg-fixed"
+      >
+        <Header />
+        <div>
+          {pokemons.map((pokemon, index) => (
+            <div key={`pokemon-${index}`} className="grid grid-cols-4 gap-4">
+              <PokeCard name={pokemon.name} url={pokemon.url} />
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      </div>
+    </MainLayout>
   );
 }
