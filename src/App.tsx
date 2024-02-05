@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import "./App.css";
+import PokeCard from "./components/PokeCard";
+import { fetchPokemons } from "./services/pokeapi";
 
-function App() {
+export default function App() {
+  interface Pokemon {
+    name: string;
+    url: string;
+  }
+
+  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetchPokemons();
+      const data = response.data.results;
+      setPokemons(data);
+    };
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="m-10">
+      {pokemons.map((pokemon, index) => (
+        <div key={`pokemon-${index}`} className="grid grid-cols-4 gap-4">
+          <PokeCard name={pokemon.name} url={pokemon.url} />
+        </div>
+      ))}
     </div>
   );
 }
-
-export default App;
