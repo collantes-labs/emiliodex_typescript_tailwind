@@ -12,6 +12,10 @@ export interface BackgroundTypes {
   [key: string]: string;
 }
 
+export interface HeaderProps {
+  handleSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
 export interface Pokemon {
   abilities: Ability[];
   base_experience: number;
