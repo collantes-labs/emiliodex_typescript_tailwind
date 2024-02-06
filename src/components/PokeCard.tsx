@@ -38,20 +38,20 @@ export default function PokeCard({ name, url }: PokeCardProps) {
   }
 
   return (
-    <div className="max-w-sm rounded-lg overflow-hidden shadow-lg border border-green-400">
-      <button onClick={() => navigate(`/pokemon/${id}`)}>
+    <div>
+      <button className="w-56" onClick={() => navigate(`/pokemon/${id}`)}>
         <div
-          className={`border border-solid ${backgroundColor} flex flex-col rounded-tl-7 rounded-tr-7 h-350`}
+          className={
+            "bg-white flex flex-col h-350 border border-green-500 rounded-t-lg"
+          }
         >
           <div>
             <span>{`#${id}`}</span>
           </div>
-          <img src={src} alt={name} className="h-230 w-240" />
+          <img src={src} alt={name} className="h-40" />
         </div>
-        <div className={`bg-${backgroundColor}`}>
-          <p className="bg-green-500 text-white p-2 text-center">
-            {capitalize(name)}
-          </p>
+        <div className={backgroundColor}>
+          <p className="b text-white p-2 text-center">{capitalize(name)}</p>
         </div>
       </button>
     </div>

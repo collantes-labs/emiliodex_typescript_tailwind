@@ -1,5 +1,3 @@
-import "./search-bar.css";
-
 export default function Header() {
   return (
     <div className="flex-1">

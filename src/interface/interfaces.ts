@@ -1,3 +1,8 @@
+export interface PokemonProps {
+  name: string;
+  url: string;
+}
+
 export interface PokeCardProps {
   name: string;
   url: string;
