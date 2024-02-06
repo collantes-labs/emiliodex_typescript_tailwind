@@ -1,5 +1,3 @@
-import "./pagination.css";
-
 interface PaginationProps {
   current: number;
   count: number;
