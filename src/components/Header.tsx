@@ -1,4 +1,8 @@
-export default function Header() {
+type HeaderProps = {
+  handleSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+export default function Header({ handleSearchChange }: HeaderProps) {
   return (
     <div className="flex-1">
       <header className="duration-300 ease-in-out delay-0ms flex flex-col w-full box-border bg-red-500 shadow-md shadow-lg shadow-inner">
@@ -18,6 +22,7 @@ export default function Header() {
               className="w-full p-2 border border-gray-300 rounded focus:outline-none p-1"
               placeholder="Search..."
               style={{ textAlign: "right" }}
+              onChange={handleSearchChange}
             />
           </div>
         </div>

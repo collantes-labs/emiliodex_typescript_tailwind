@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
-import { Pokemon } from "../interface/interfaces";
+import { PokemonProps } from "../interface/interfaces";
 
-export default function usePagination(pokemons: Pokemon[]) {
+export default function usePagination(pokemons: PokemonProps[]) {
   const pageSize = 20;
   const [currentPage, setCurrentPage] = useState<number>(1);
   const totalPokemon = pokemons.length;

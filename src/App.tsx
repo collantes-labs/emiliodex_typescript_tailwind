@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import PokeCard from "./components/PokeCard";
 import Header from "./components/Header";
+import usePagination from "./hooks/usePagination";
 import MainLayout from "./components/MainLayout";
+import Loading from "./pages/loading-page";
 import { fetchPokemons } from "./services/pokeapi";
 import Pagination from "./components/Pagination";
 import { PokemonProps } from "./interface/interfaces";
@@ -31,10 +33,6 @@ export default function App() {
   const { paginatedPokemons, pagesCount, currentPage, onPageChange } =
     usePagination(filteredPokemons);
 
-  // const handleClick = (page: number) => {
-  //   setCurrentPage(page);
-  // };
-
   if (!pokemons.length) return <Loading />;
 
   return (
@@ -60,7 +58,7 @@ export default function App() {
         <Pagination
           current={currentPage}
           count={pagesCount}
-          onChange={(e, page) => onPageChange(page)}
+          onChange={onPageChange}
         />
       </div>
     </MainLayout>
