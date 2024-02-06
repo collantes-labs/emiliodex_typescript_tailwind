@@ -1,8 +1,4 @@
-interface PaginationProps {
-  current: number;
-  count: number;
-  onChange: (page: number) => void;
-}
+import { PaginationProps } from "../interface/interfaces";
 
 export default function Pagination({
   current,
@@ -10,7 +6,6 @@ export default function Pagination({
   onChange,
 }: PaginationProps) {
   const pages = Array.from({ length: count }, (_, i) => i + 1);
-  console.log(pages);
   const pagesToShow = pages.slice(
     current > 2 ? current - 2 : 0,
     current < pages.length - 1 ? current + 3 : pages.length

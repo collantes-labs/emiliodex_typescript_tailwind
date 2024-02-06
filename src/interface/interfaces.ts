@@ -16,6 +16,12 @@ export interface HeaderProps {
   handleSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
+export interface PaginationProps {
+  current: number;
+  count: number;
+  onChange: (page: number) => void;
+}
+
 export interface Pokemon {
   abilities: Ability[];
   base_experience: number;
