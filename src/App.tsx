@@ -3,7 +3,6 @@ import "./App.css";
 import PokeCard from "./components/PokeCard";
 import Header from "./components/Header";
 import usePagination from "./hooks/usePagination";
-import MainLayout from "./components/MainLayout";
 import Loading from "./pages/loading-page";
 import { fetchPokemons } from "./services/pokeapi";
 import Pagination from "./components/Pagination";
@@ -36,31 +35,29 @@ export default function App() {
   if (!pokemons.length) return <Loading />;
 
   return (
-    <MainLayout>
-      <div
-        style={{ backgroundImage: `url(pokebackground.jpg)` }}
-        className="bg-cover bg-no-repeat bg-fixed"
-      >
-        <Header handleSearchChange={handleSearchChange} />
-        <div className="w-3/4 mx-auto mt-8 pb-7">
-          <div className="grid grid-cols-4 gap-4">
-            {paginatedPokemons.map((pokemon, index) => (
-              <div className="max-w-56">
-                <PokeCard
-                  key={`pokemon-${index}`}
-                  name={pokemon.name}
-                  url={pokemon.url}
-                />
-              </div>
-            ))}
-          </div>
+    <div
+      style={{ backgroundImage: `url(pokebackground.jpg)` }}
+      className="bg-cover bg-no-repeat bg-fixed"
+    >
+      <Header handleSearchChange={handleSearchChange} />
+      <div className="w-3/4 mx-auto mt-8 pb-7">
+        <div className="grid grid-cols-4 gap-4">
+          {paginatedPokemons.map((pokemon, index) => (
+            <div className="max-w-56">
+              <PokeCard
+                key={`pokemon-${index}`}
+                name={pokemon.name}
+                url={pokemon.url}
+              />
+            </div>
+          ))}
         </div>
-        <Pagination
-          current={currentPage}
-          count={pagesCount}
-          onChange={onPageChange}
-        />
       </div>
-    </MainLayout>
+      <Pagination
+        current={currentPage}
+        count={pagesCount}
+        onChange={onPageChange}
+      />
+    </div>
   );
 }
