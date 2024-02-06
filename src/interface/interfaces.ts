@@ -8,6 +8,10 @@ export interface PokeCardProps {
   url: string;
 }
 
+export interface BackgroundTypes {
+  [key: string]: string;
+}
+
 export interface Pokemon {
   abilities: Ability[];
   base_experience: number;
@@ -75,8 +79,13 @@ export interface Species {
 
 export interface Sprites {
   back_default: string;
+  back_female: any;
+  back_shiny: string;
+  back_shiny_female: any;
   front_default: string;
+  front_female: any;
   front_shiny: string;
+  front_shiny_female: any;
   other: OtherSprites;
   versions: Versions;
 }
@@ -106,14 +115,14 @@ export interface OfficialArtwork {
 }
 
 export interface Showdown {
-  back_default: string;
-  back_female: string;
-  back_shiny: string;
-  back_shiny_female: string;
-  front_default: string;
-  front_female: string;
-  front_shiny: string;
-  front_shiny_female: string;
+  back_default: string | null;
+  back_female: string | null;
+  back_shiny: string | null;
+  back_shiny_female: string | null;
+  front_default: string | null;
+  front_female: string | null;
+  front_shiny: string | null;
+  front_shiny_female: string | null;
 }
 
 export interface Versions {
@@ -215,36 +224,36 @@ export interface GenerationIV {
 }
 
 export interface DiamondPearl {
-  back_default: string;
-  back_female: string;
-  back_shiny: string;
-  back_shiny_female: string;
-  front_default: string;
-  front_female: string;
-  front_shiny: string;
-  front_shiny_female: string;
+  back_default: string | null;
+  back_female: string | null;
+  back_shiny: string | null;
+  back_shiny_female: string | null;
+  front_default: string | null;
+  front_female: string | null;
+  front_shiny: string | null;
+  front_shiny_female: string | null;
 }
 
 export interface HeartGoldSoulSilver {
-  back_default: string;
-  back_female: string;
-  back_shiny: string;
-  back_shiny_female: string;
-  front_default: string;
-  front_female: string;
-  front_shiny: string;
-  front_shiny_female: string;
+  back_default: string | null;
+  back_female: string | null;
+  back_shiny: string | null;
+  back_shiny_female: string | null;
+  front_default: string | null;
+  front_female: string | null;
+  front_shiny: string | null;
+  front_shiny_female: string | null;
 }
 
 export interface Platinum {
-  back_default: string;
-  back_female: string;
-  back_shiny: string;
-  back_shiny_female: string;
-  front_default: string;
-  front_female: string;
-  front_shiny: string;
-  front_shiny_female: string;
+  back_default: string | null;
+  back_female: string | null;
+  back_shiny: string | null;
+  back_shiny_female: string | null;
+  front_default: string | null;
+  front_female: string | null;
+  front_shiny: string | null;
+  front_shiny_female: string | null;
 }
 
 export interface GenerationV {
@@ -253,25 +262,25 @@ export interface GenerationV {
 
 export interface BlackWhite {
   animated: BlackWhiteAnimated;
-  back_default: string;
-  back_female: string;
-  back_shiny: string;
-  back_shiny_female: string;
-  front_default: string;
-  front_female: string;
-  front_shiny: string;
-  front_shiny_female: string;
+  back_default: string | null;
+  back_female: string | null;
+  back_shiny: string | null;
+  back_shiny_female: string | null;
+  front_default: string | null;
+  front_female: string | null;
+  front_shiny: string | null;
+  front_shiny_female: string | null;
 }
 
 export interface BlackWhiteAnimated {
-  back_default: string;
-  back_female: string;
-  back_shiny: string;
-  back_shiny_female: string;
-  front_default: string;
-  front_female: string;
-  front_shiny: string;
-  front_shiny_female: string;
+  back_default: string | null;
+  back_female: string | null;
+  back_shiny: string | null;
+  back_shiny_female: string | null;
+  front_default: string | null;
+  front_female: string | null;
+  front_shiny: string | null;
+  front_shiny_female: string | null;
 }
 
 export interface GenerationVI {
@@ -280,17 +289,17 @@ export interface GenerationVI {
 }
 
 export interface OmegaRubyAlphaSapphire {
-  front_default: string;
-  front_female: string;
-  front_shiny: string;
-  front_shiny_female: string;
+  front_default: string | null;
+  front_female: string | null;
+  front_shiny: string | null;
+  front_shiny_female: string | null;
 }
 
 export interface XY {
-  front_default: string;
-  front_female: string;
-  front_shiny: string;
-  front_shiny_female: string;
+  front_default: string | any;
+  front_female: string | any;
+  front_shiny: string | any;
+  front_shiny_female: string | any;
 }
 
 export interface GenerationVII {
@@ -299,15 +308,15 @@ export interface GenerationVII {
 }
 
 export interface IconsGenVII {
-  front_default: string;
-  front_female: string;
+  front_default: string | null;
+  front_female: string | null;
 }
 
 export interface UltraSunUltraMoon {
-  front_default: string;
-  front_female: string;
-  front_shiny: string;
-  front_shiny_female: string;
+  front_default: string | null;
+  front_female: string | null;
+  front_shiny: string | null;
+  front_shiny_female: string | null;
 }
 
 export interface GenerationVIII {
@@ -315,8 +324,8 @@ export interface GenerationVIII {
 }
 
 export interface IconsGenVIII {
-  front_default: string;
-  front_female: string;
+  front_default: string | null;
+  front_female: string | null;
 }
 
 export interface Stat {

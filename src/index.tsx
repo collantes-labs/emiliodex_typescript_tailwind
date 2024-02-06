@@ -4,13 +4,18 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import ErrorPage from "./pages/error_page";
+import ErrorPage from "./pages/error-page";
+import PokemonDetails from "./pages/pokemon-details";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "/pokemon/:pokemonId",
+    element: <PokemonDetails />,
   },
 ]);
 

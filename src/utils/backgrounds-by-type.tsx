@@ -1,4 +1,6 @@
-export const background = {
+import { BackgroundTypes } from "../interface/interfaces";
+
+export const background: BackgroundTypes = {
   normal: "bg-gray-400",
   fighting: "bg-red-600",
   flying: "bg-purple-400",
