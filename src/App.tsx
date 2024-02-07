@@ -7,10 +7,12 @@ import Loading from "./pages/loading-page";
 import { fetchPokemons } from "./services/pokeapi";
 import Pagination from "./components/Pagination";
 import { PokemonProps } from "./interface/interfaces";
+import { useDebounce } from "@uidotdev/usehooks";
 
 export default function App() {
   const [pokemons, setPokemons] = useState<PokemonProps[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const debouncedSearchTerm = useDebounce(searchTerm, 350);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,11 +28,15 @@ export default function App() {
   };
 
   const filteredPokemons = pokemons.filter((pokemon) => {
-    return pokemon.name.toLowerCase().includes(searchTerm.toLowerCase());
+    return pokemon.name
+      .toLowerCase()
+      .includes(debouncedSearchTerm.toLowerCase());
   });
 
   const { paginatedPokemons, pagesCount, currentPage, onPageChange } =
     usePagination(filteredPokemons);
+
+  console.log(filteredPokemons);
 
   if (!pokemons.length) return <Loading />;
 

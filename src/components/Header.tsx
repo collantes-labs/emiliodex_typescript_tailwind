@@ -19,7 +19,7 @@ export default function Header({ handleSearchChange }: HeaderProps) {
               type="search"
               className="w-full p-2 border border-gray-300 rounded focus:outline-none p-1"
               placeholder="Search..."
-              style={{ textAlign: "right" }}
+              style={{ textAlign: "left", paddingLeft: "33px" }}
               onChange={handleSearchChange}
             />
           </div>

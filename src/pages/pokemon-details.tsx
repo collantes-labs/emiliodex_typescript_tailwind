@@ -45,6 +45,7 @@ export default function PokemonDetails() {
     name: statNames[index],
     value,
   }));
+  const artwork = pokemon?.sprites?.other?.["official-artwork"]?.front_default;
 
   if (!pokemonTypes) {
     return <Loading />;
@@ -56,11 +57,19 @@ export default function PokemonDetails() {
     >
       <div className="w-2/3 p-16 flex flex-col cursor-pointer mt-5 rounded-md bg-white shadow-lg hover:scale-105">
         <div className="flex justify-center">
-          <img
-            className="max-w-md"
-            src={pokemon?.sprites?.other?.dream_world?.front_default}
-            alt={pokemon?.name}
-          />
+          {artwork === null ? (
+            <img
+              className="max-w-md max-h-72"
+              src="../default-img.webp"
+              alt={pokemon?.name}
+            />
+          ) : (
+            <img
+              className="max-w-md max-h-72"
+              src={artwork}
+              alt={pokemon?.name}
+            />
+          )}
         </div>
         <div>
           <p className="text-center mt-7 font-semibold text-xl">

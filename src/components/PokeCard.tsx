@@ -10,17 +10,31 @@ export default function PokeCard({ name, url }: PokeCardProps) {
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
   const [backgroundColor, setBackgroundColor] = useState("#AAA67F");
   const [id, setId] = useState<number>(0);
+  const [error, setError] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
+  interface APIError extends Error {
+    status: number;
+  }
+
   useEffect(() => {
     const fetchPokemon = async () => {
-      const pokemonData = await fetchPokemonById(url);
-      const pokemonType = pokemonData?.types?.[0]?.type
-        ?.name as keyof typeof background;
-      const pokemonBackgroundColor = background[pokemonType];
-      setBackgroundColor(pokemonBackgroundColor);
-      setPokemon(pokemonData);
+      try {
+        const pokemonData = await fetchPokemonById(url);
+        const pokemonType = pokemonData?.types?.[0]?.type
+          ?.name as keyof typeof background;
+        const pokemonBackgroundColor = background[pokemonType];
+        setBackgroundColor(pokemonBackgroundColor);
+        setPokemon(pokemonData);
+      } catch (err) {
+        if (err instanceof Error) {
+          const error = err as APIError;
+          if (error.status === 404) {
+            setError(true);
+          }
+        }
+      }
     };
     const getId = () => {
       const urlParts = url.split("/");
@@ -31,7 +45,7 @@ export default function PokeCard({ name, url }: PokeCardProps) {
     getId();
   }, [url]);
 
-  const src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
+  const src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 
   if (id === 0 || pokemon === null) {
     return <NotFound />;
@@ -51,7 +65,15 @@ export default function PokeCard({ name, url }: PokeCardProps) {
           <div>
             <span>{`#${id}`}</span>
           </div>
-          <img src={src} alt={name} className="h-40" />
+          {error && <img src="default-img.webp" alt={name} className="h-40" />}
+          {!error && (
+            <img
+              src={src}
+              onError={() => setError(true)}
+              alt={name}
+              className="h-40"
+            />
+          )}
         </div>
         <div className={backgroundColor}>
           <p className="b text-white p-2 text-center">{capitalize(name)}</p>

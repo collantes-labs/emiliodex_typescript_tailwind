@@ -103,7 +103,7 @@ export interface Sprites {
 export interface OtherSprites {
   dream_world: DreamWorld;
   home: Home;
-  "official artwork": OfficialArtwork;
+  "official-artwork": OfficialArtwork;
   showdown: Showdown;
 }
 
