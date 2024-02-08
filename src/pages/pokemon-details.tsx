@@ -6,6 +6,7 @@ import axios from "axios";
 import { Pokemon } from "../interface/interfaces";
 import { defaultPokemon } from "../default-values/defaultPokemon";
 import { useParams } from "react-router-dom";
+import HeaderDetails from "../components/HeaderDetails";
 
 export default function PokemonDetails() {
   const [pokemon, setPokemon] = useState<Pokemon>(defaultPokemon);
@@ -52,35 +53,38 @@ export default function PokemonDetails() {
   }
 
   return (
-    <div
-      className={`min-h-screen flex justify-center items-center ${backgroundColor} flex-col min-w-screen`}
-    >
-      <div className="w-2/3 p-16 flex flex-col cursor-pointer mt-5 rounded-md bg-white shadow-lg hover:scale-105">
-        <div className="flex justify-center">
-          {artwork === null ? (
-            <img
-              className="max-w-md max-h-72"
-              src="../default-img.webp"
-              alt={pokemon?.name}
-            />
-          ) : (
-            <img
-              className="max-w-md max-h-72"
-              src={artwork}
-              alt={pokemon?.name}
-            />
-          )}
-        </div>
-        <div>
-          <p className="text-center mt-7 font-semibold text-xl">
-            {capitalize(pokemon?.name)}
-          </p>
-          <p className="text-center mb-7">{typeString}</p>
-          {statsWithNames.map((stat) => (
-            <p key={stat.name}>
-              {stat.name}: {stat.value}
+    <div>
+      <HeaderDetails />
+      <div
+        className={`min-h-screen flex justify-center items-center ${backgroundColor} flex-col min-w-screen`}
+      >
+        <div className="w-2/3 p-16 flex flex-col cursor-pointer mt-5 rounded-md bg-white shadow-lg hover:scale-105">
+          <div className="flex justify-center">
+            {artwork === null ? (
+              <img
+                className="max-w-md max-h-72"
+                src="../default-img.webp"
+                alt={pokemon?.name}
+              />
+            ) : (
+              <img
+                className="max-w-md max-h-72"
+                src={artwork}
+                alt={pokemon?.name}
+              />
+            )}
+          </div>
+          <div>
+            <p className="text-center mt-7 font-semibold text-xl">
+              {capitalize(pokemon?.name)}
             </p>
-          ))}
+            <p className="text-center mb-7">{typeString}</p>
+            {statsWithNames.map((stat) => (
+              <p key={stat.name}>
+                {stat.name}: {stat.value}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
     </div>
