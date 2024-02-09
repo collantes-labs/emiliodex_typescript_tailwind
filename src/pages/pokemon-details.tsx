@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import capitalize from "capitalize";
 import { background } from "../utils/backgrounds-by-type";
 import Loading from "./loading-page";
 import axios from "axios";
@@ -15,6 +14,8 @@ export default function PokemonDetails() {
   const getIdFromUrl = useParams();
   const { pokemonId } = getIdFromUrl;
   const detailsUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
+  const name = pokemon?.name;
+  const capitalizedName = name[0].toUpperCase() + name.slice(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -58,25 +59,21 @@ export default function PokemonDetails() {
       <div
         className={`min-h-screen flex justify-center items-center ${backgroundColor} flex-col min-w-screen`}
       >
-        <div className="w-2/3 p-16 flex flex-col cursor-pointer mt-5 rounded-md bg-white shadow-lg hover:scale-105">
+        <div className="w-2/3 p-16 flex flex-col mt-5 rounded-md bg-white shadow-lg">
           <div className="flex justify-center">
             {artwork === null ? (
               <img
                 className="max-w-md max-h-72"
                 src="../default-img.webp"
-                alt={pokemon?.name}
+                alt={name}
               />
             ) : (
-              <img
-                className="max-w-md max-h-72"
-                src={artwork}
-                alt={pokemon?.name}
-              />
+              <img className="max-w-md max-h-72" src={artwork} alt={name} />
             )}
           </div>
           <div>
             <p className="text-center mt-7 font-semibold text-xl">
-              {capitalize(pokemon?.name)}
+              {capitalizedName}
             </p>
             <p className="text-center mb-7">{typeString}</p>
             {statsWithNames.map((stat) => (

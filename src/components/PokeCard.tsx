@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { fetchPokemonById } from "../services/pokeapi";
 import { background } from "../utils/backgrounds-by-type";
-import capitalize from "capitalize";
 import NotFound from "../pages/not-found";
 import { PokeCardProps, Pokemon } from "../interface/interfaces";
 
@@ -13,6 +12,7 @@ export default function PokeCard({ name, url }: PokeCardProps) {
   const [error, setError] = useState<boolean>(false);
 
   const navigate = useNavigate();
+  const capitalizedName = name[0].toUpperCase() + name.slice(1);
 
   interface APIError extends Error {
     status: number;
@@ -76,7 +76,7 @@ export default function PokeCard({ name, url }: PokeCardProps) {
           )}
         </div>
         <div className={backgroundColor}>
-          <p className="b text-white p-2 text-center">{capitalize(name)}</p>
+          <p className="b text-white p-2 text-center">{capitalizedName}</p>
         </div>
       </button>
     </div>
