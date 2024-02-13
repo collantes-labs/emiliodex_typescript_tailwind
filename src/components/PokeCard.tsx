@@ -3,7 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { fetchPokemonById } from "../services/pokeapi";
 import { background } from "../utils/backgrounds-by-type";
 import NotFound from "../pages/not-found";
-import { PokeCardProps, Pokemon } from "../interface/interfaces";
+import { Pokemon } from "../interface/interfaces";
+
+interface PokeCardProps {
+  name: string;
+  url: string;
+}
 
 export default function PokeCard({ name, url }: PokeCardProps) {
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
@@ -54,7 +59,7 @@ export default function PokeCard({ name, url }: PokeCardProps) {
   return (
     <div>
       <button
-        className="w-56 sm:w-28 md:w-36 lg:w-48"
+        className="w-56 2xl:w-64 lg:w-44 sm:w-28 md:w-36"
         onClick={() => navigate(`/pokemon/${id}`)}
       >
         <div
@@ -71,12 +76,14 @@ export default function PokeCard({ name, url }: PokeCardProps) {
               src={src}
               onError={() => setError(true)}
               alt={name}
-              className="h-40"
+              className="h-40 2xl:h-52"
             />
           )}
         </div>
         <div className={backgroundColor}>
-          <p className="b text-white p-2 text-center">{capitalizedName}</p>
+          <p className="b text-white p-2 text-center 2xl:text-2xl">
+            {capitalizedName}
+          </p>
         </div>
       </button>
     </div>

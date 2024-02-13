@@ -1,4 +1,4 @@
-import { Pokemon } from "../interface/interfaces";
+import { Pokemon, VersionsEnum } from "../interface/interfaces";
 
 export const defaultPokemon: Pokemon = {
   abilities: [],
@@ -68,7 +68,7 @@ export const defaultPokemon: Pokemon = {
       },
     },
     versions: {
-      "generation-i": {
+      [VersionsEnum.GenerationI]: {
         "red-blue": {
           back_default:
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/back/1.png",
@@ -98,7 +98,7 @@ export const defaultPokemon: Pokemon = {
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/yellow/transparent/1.png",
         },
       },
-      "generation-ii": {
+      [VersionsEnum.GenerationII]: {
         crystal: {
           back_default:
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-ii/crystal/back/1.png",
@@ -142,7 +142,7 @@ export const defaultPokemon: Pokemon = {
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-ii/silver/transparent/1.png",
         },
       },
-      "generation-iii": {
+      [VersionsEnum.GenerationIII]: {
         emerald: {
           front_default:
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/emerald/1.png",
@@ -170,7 +170,7 @@ export const defaultPokemon: Pokemon = {
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iii/ruby-sapphire/shiny/1.png",
         },
       },
-      "generation-iv": {
+      [VersionsEnum.GenerationIV]: {
         "diamond-pearl": {
           back_default:
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-iv/diamond-pearl/back/1.png",
@@ -214,7 +214,7 @@ export const defaultPokemon: Pokemon = {
           front_shiny_female: null,
         },
       },
-      "generation-v": {
+      [VersionsEnum.GenerationV]: {
         "black-white": {
           animated: {
             back_default:
@@ -244,7 +244,7 @@ export const defaultPokemon: Pokemon = {
           front_shiny_female: null,
         },
       },
-      "generation-vi": {
+      [VersionsEnum.GenerationVI]: {
         "omegaruby-alphasapphire": {
           front_default:
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/1.png",
@@ -262,7 +262,7 @@ export const defaultPokemon: Pokemon = {
           front_shiny_female: null,
         },
       },
-      "generation-vii": {
+      [VersionsEnum.GenerationVII]: {
         icons: {
           front_default:
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/1.png",
@@ -277,7 +277,7 @@ export const defaultPokemon: Pokemon = {
           front_shiny_female: null,
         },
       },
-      "generation-viii": {
+      [VersionsEnum.GenerationVIII]: {
         icons: {
           front_default:
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/1.png",

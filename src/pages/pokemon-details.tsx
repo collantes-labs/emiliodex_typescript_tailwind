@@ -21,12 +21,14 @@ export default function PokemonDetails() {
     const fetchData = async () => {
       const result = await axios(detailsUrl);
       setPokemon(result.data);
-      const pokemonBackgroundColor =
-        background[pokemon?.types?.[0]?.type?.name];
-      setBackgroundColor(pokemonBackgroundColor);
     };
     fetchData();
-  }, [detailsUrl, pokemon?.types]);
+  }, [detailsUrl]);
+
+  useEffect(() => {
+    const pokemonBackgroundColor = background[pokemon?.types?.[0]?.type?.name];
+    setBackgroundColor(pokemonBackgroundColor);
+  }, [pokemon?.types]);
 
   const pokemonStats = pokemon?.stats;
   const statNames = [
@@ -68,16 +70,20 @@ export default function PokemonDetails() {
                 alt={name}
               />
             ) : (
-              <img className="max-w-md max-h-72" src={artwork} alt={name} />
+              <img
+                className="max-w-md max-h-56 2xl:max-h-7xl"
+                src={artwork}
+                alt={name}
+              />
             )}
           </div>
           <div>
-            <p className="text-center mt-7 font-semibold text-xl">
+            <p className="text-center mt-7 font-semibold text-xl 2xl:text-4xl">
               {capitalizedName}
             </p>
-            <p className="text-center mb-7">{typeString}</p>
+            <p className="text-center mb-7 2xl:text-3xl">{typeString}</p>
             {statsWithNames.map((stat) => (
-              <p key={stat.name}>
+              <p className="2xl:text-2xl" key={stat.name}>
                 {stat.name}: {stat.value}
               </p>
             ))}

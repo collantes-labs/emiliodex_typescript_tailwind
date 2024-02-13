@@ -3,25 +3,6 @@ export interface PokemonProps {
   url: string;
 }
 
-export interface PokeCardProps {
-  name: string;
-  url: string;
-}
-
-export interface BackgroundTypes {
-  [key: string]: string;
-}
-
-export interface HeaderProps {
-  handleSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-export interface PaginationProps {
-  current: number;
-  count: number;
-  onChange: (page: number) => void;
-}
-
 export interface Pokemon {
   abilities: Ability[];
   base_experience: number;
@@ -135,15 +116,26 @@ export interface Showdown {
   front_shiny_female: string | null;
 }
 
+export enum VersionsEnum {
+  GenerationI = "generation-i",
+  GenerationII = "generation-ii",
+  GenerationIII = "generation-iii",
+  GenerationIV = "generation-iv",
+  GenerationV = "generation-v",
+  GenerationVI = "generation-vi",
+  GenerationVII = "generation-vii",
+  GenerationVIII = "generation-viii",
+}
+
 export interface Versions {
-  "generation-i": GenerationI;
-  "generation-ii": GenerationII;
-  "generation-iii": GenerationIII;
-  "generation-iv": GenerationIV;
-  "generation-v": GenerationV;
-  "generation-vi": GenerationVI;
-  "generation-vii": GenerationVII;
-  "generation-viii": GenerationVIII;
+  [VersionsEnum.GenerationI]: GenerationI;
+  [VersionsEnum.GenerationII]: GenerationII;
+  [VersionsEnum.GenerationIII]: GenerationIII;
+  [VersionsEnum.GenerationIV]: GenerationIV;
+  [VersionsEnum.GenerationV]: GenerationV;
+  [VersionsEnum.GenerationVI]: GenerationVI;
+  [VersionsEnum.GenerationVII]: GenerationVII;
+  [VersionsEnum.GenerationVIII]: GenerationVIII;
 }
 
 export interface GenerationI {

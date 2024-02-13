@@ -1,4 +1,6 @@
-import { HeaderProps } from "../interface/interfaces";
+interface HeaderProps {
+  handleSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
 export default function Header({ handleSearchChange }: HeaderProps) {
   return (
