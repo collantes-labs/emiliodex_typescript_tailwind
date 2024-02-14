@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pokedex-typescript-tailwind/static/css/main.6bacc194.css",
-    "main.js": "/pokedex-typescript-tailwind/static/js/main.808543ef.js",
-    "static/js/592.c9047db4.chunk.js": "/pokedex-typescript-tailwind/static/js/592.c9047db4.chunk.js",
-    "index.html": "/pokedex-typescript-tailwind/index.html",
-    "main.6bacc194.css.map": "/pokedex-typescript-tailwind/static/css/main.6bacc194.css.map",
-    "main.808543ef.js.map": "/pokedex-typescript-tailwind/static/js/main.808543ef.js.map",
-    "592.c9047db4.chunk.js.map": "/pokedex-typescript-tailwind/static/js/592.c9047db4.chunk.js.map"
+    "main.css": "/static/css/main.6bacc194.css",
+    "main.js": "/static/js/main.26870467.js",
+    "static/js/592.c9047db4.chunk.js": "/static/js/592.c9047db4.chunk.js",
+    "index.html": "/index.html",
+    "main.6bacc194.css.map": "/static/css/main.6bacc194.css.map",
+    "main.26870467.js.map": "/static/js/main.26870467.js.map",
+    "592.c9047db4.chunk.js.map": "/static/js/592.c9047db4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6bacc194.css",
-    "static/js/main.808543ef.js"
+    "static/js/main.26870467.js"
   ]
 }
