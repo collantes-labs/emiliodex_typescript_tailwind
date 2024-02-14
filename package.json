@@ -1,8 +1,7 @@
 {
   "name": "emiliodex_typescript_tailwind",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
-  "homepage": "https://collantes-labs.github.io/emiliodex_typescript_tailwind/",
   "dependencies": {
     "@heroicons/react": "^1.0.6",
     "@tailwindcss/forms": "^0.5.7",
